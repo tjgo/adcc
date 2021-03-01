@@ -42,25 +42,92 @@ fun PuppyItem(puppy: PuppyBean) {
             )
 
             Column(modifier = Modifier.padding(start = 15.dp).align(Alignment.CenterVertically)) {
-                //puppy name
-                Text(text = puppy.name, fontSize = 24.sp, fontWeight = FontWeight(750) , color = Color.DarkGray)
+                Row {
+                    //puppy name
+                    Text(
+                        text = puppy.name,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight(750),
+                        color = Color.DarkGray,
+                        modifier = Modifier.align(Alignment.CenterVertically)
+                    )
+
+                    //gender
+                    Box(
+                        modifier = Modifier.align(Alignment.CenterVertically).padding(start = 6.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(id = if (puppy.gender == 0) R.mipmap.male else R.mipmap.female),
+                            contentDescription = if (puppy.gender == 0) "male" else "female",
+                            modifier = Modifier.width(16.dp).height(16.dp)
+                        )
+                    }
+
+                    if (puppy.vaccine) {
+                        //vaccine
+                        Box(
+                            modifier = Modifier.align(Alignment.CenterVertically)
+                                .padding(start = 6.dp)
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.mipmap.injector),
+                                contentDescription = "vaccine",
+                                modifier = Modifier.width(16.dp).height(16.dp)
+                            )
+                        }
+                    }
+                }
+
 
                 //puppy race
-                Row{
-                    Image(painter = painterResource(id = R.mipmap.dog), contentDescription = "race", modifier = Modifier.width(12.dp).height(12.dp).align(Alignment.CenterVertically))
-                    Text(text = puppy.race, fontSize = 16.sp, fontWeight = FontWeight(350), color = Color.Gray, modifier = Modifier.align(Alignment.CenterVertically).padding(start = 4.dp))
+                Row {
+                    Image(
+                        painter = painterResource(id = R.mipmap.dog),
+                        contentDescription = "race",
+                        modifier = Modifier.width(12.dp).height(12.dp)
+                            .align(Alignment.CenterVertically)
+                    )
+                    Text(
+                        text = puppy.race,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight(350),
+                        color = Color.Gray,
+                        modifier = Modifier.align(Alignment.CenterVertically).padding(start = 4.dp)
+                    )
                 }
 
                 //puppy location
                 Row {
-                    Image(painter = painterResource(id = R.mipmap.location), contentDescription = "location", modifier = Modifier.width(12.dp).height(12.dp).align(Alignment.CenterVertically))
-                    Text(text = puppy.location, fontSize = 16.sp, fontWeight = FontWeight(350), color = Color.Gray, modifier = Modifier.align(Alignment.CenterVertically).padding(start = 4.dp))
+                    Image(
+                        painter = painterResource(id = R.mipmap.location),
+                        contentDescription = "location",
+                        modifier = Modifier.width(12.dp).height(12.dp)
+                            .align(Alignment.CenterVertically)
+                    )
+                    Text(
+                        text = puppy.location,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight(350),
+                        color = Color.Gray,
+                        modifier = Modifier.align(Alignment.CenterVertically).padding(start = 4.dp)
+                    )
                 }
 
-                //puppy location
+                //puppy age
                 Row {
-                    Image(painter = painterResource(id = R.mipmap.age), contentDescription = "location", modifier = Modifier.width(12.dp).height(12.dp).align(Alignment.CenterVertically))
-                    Text(text = "${puppy.age} Months", fontSize = 16.sp, fontWeight = FontWeight(350), color = Color.Gray, modifier = Modifier.align(Alignment.CenterVertically).padding(start = 4.dp))
+                    Image(
+                        painter = painterResource(id = R.mipmap.age),
+                        contentDescription = "location",
+                        modifier = Modifier.width(12.dp).height(12.dp)
+                            .align(Alignment.CenterVertically)
+                    )
+                    Text(
+                        text = "${puppy.age} Months",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight(350),
+                        color = Color.Gray,
+                        modifier = Modifier.align(Alignment.CenterVertically).padding(start = 4.dp)
+                    )
                 }
             }
 
