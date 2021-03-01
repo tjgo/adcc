@@ -19,9 +19,9 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.MaterialTheme
@@ -57,19 +57,19 @@ fun MyApp() {
     viewModel.getAllPuppy()
     Surface(color = MaterialTheme.colors.background) {
         Column(modifier = Modifier.fillMaxSize()) {
-            //title
+            // title
             Box(
                 modifier = Modifier.fillMaxWidth().height(55.dp)
                     .background(MaterialTheme.colors.primaryVariant)
             ) {
-                //title content
+                // title content
                 Text(
                     text = "Puppy Adoption", modifier = Modifier.align(Alignment.Center),
                     fontSize = 20.sp, color = Color.White, fontWeight = FontWeight(600)
                 )
             }
 
-            //data
+            // data
             PuppyList(puppyList = viewModel.puppies.value)
         }
     }

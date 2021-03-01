@@ -1,15 +1,30 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge
 
 import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -29,17 +44,21 @@ fun PuppyItem(puppy: PuppyBean) {
     val context = LocalContext.current
     Row(
         modifier = Modifier.fillMaxWidth().height(120.dp)
-            .clickable(onClick = {
-                context.also {
-                    it.startActivity(Intent(it, PuppyDetailActivity::class.java).apply {
-                        putExtra("puppy_id", puppy.id)
-                    })
+            .clickable(
+                onClick = {
+                    context.also {
+                        it.startActivity(
+                            Intent(it, PuppyDetailActivity::class.java).apply {
+                                putExtra("puppy_id", puppy.id)
+                            }
+                        )
+                    }
                 }
-            })
+            )
     ) {
-        //puppy item
+        // puppy item
         Row(modifier = Modifier.fillMaxWidth().padding(10.dp).align(Alignment.CenterVertically)) {
-            //puppy image
+            // puppy image
             Image(
                 painter = painterResource(id = puppy.puppyImage),
                 contentDescription = puppy.name,
@@ -51,7 +70,7 @@ fun PuppyItem(puppy: PuppyBean) {
 
             Column(modifier = Modifier.padding(start = 15.dp).align(Alignment.CenterVertically)) {
                 Row {
-                    //puppy name
+                    // puppy name
                     Text(
                         text = puppy.name,
                         fontSize = 24.sp,
@@ -60,7 +79,7 @@ fun PuppyItem(puppy: PuppyBean) {
                         modifier = Modifier.align(Alignment.CenterVertically)
                     )
 
-                    //gender
+                    // gender
                     Box(
                         modifier = Modifier.align(Alignment.CenterVertically).padding(start = 6.dp)
                     ) {
@@ -72,7 +91,7 @@ fun PuppyItem(puppy: PuppyBean) {
                     }
 
                     if (puppy.vaccine) {
-                        //vaccine
+                        // vaccine
                         Box(
                             modifier = Modifier.align(Alignment.CenterVertically)
                                 .padding(start = 6.dp)
@@ -86,8 +105,7 @@ fun PuppyItem(puppy: PuppyBean) {
                     }
                 }
 
-
-                //puppy race
+                // puppy race
                 Row {
                     Image(
                         painter = painterResource(id = R.mipmap.dog),
@@ -104,7 +122,7 @@ fun PuppyItem(puppy: PuppyBean) {
                     )
                 }
 
-                //puppy location
+                // puppy location
                 Row {
                     Image(
                         painter = painterResource(id = R.mipmap.location),
@@ -121,7 +139,7 @@ fun PuppyItem(puppy: PuppyBean) {
                     )
                 }
 
-                //puppy age
+                // puppy age
                 Row {
                     Image(
                         painter = painterResource(id = R.mipmap.age),
@@ -138,7 +156,6 @@ fun PuppyItem(puppy: PuppyBean) {
                     )
                 }
             }
-
         }
     }
 }

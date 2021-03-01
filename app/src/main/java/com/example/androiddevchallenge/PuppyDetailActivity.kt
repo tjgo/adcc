@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge
 
 import android.os.Bundle
@@ -7,12 +22,12 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -56,7 +71,7 @@ class PuppyDetailActivity : AppCompatActivity() {
 
                     Column(modifier = Modifier.padding(15.dp).fillMaxSize()) {
 
-                        //puppy image
+                        // puppy image
                         Image(
                             painter = painterResource(
                                 id = mViewModel.puppyInfo.value?.puppyImage ?: R.mipmap.puppy1
@@ -66,8 +81,7 @@ class PuppyDetailActivity : AppCompatActivity() {
                             contentScale = ContentScale.FillWidth
                         )
 
-
-                        //puppy name & gender
+                        // puppy name & gender
                         Box(
                             modifier = Modifier.padding(
                                 start = 15.dp, end = 15.dp,
@@ -80,7 +94,7 @@ class PuppyDetailActivity : AppCompatActivity() {
                             Row(
                                 modifier = Modifier.height(50.dp)
                             ) {
-                                //name
+                                // name
                                 Text(
                                     text = mViewModel.puppyInfo.value?.name ?: "",
                                     fontWeight = FontWeight(600),
@@ -101,7 +115,7 @@ class PuppyDetailActivity : AppCompatActivity() {
                                 }
 
                                 if (mViewModel.puppyInfo.value?.vaccine == true) {
-                                    //vaccine
+                                    // vaccine
                                     Box(
                                         modifier = Modifier.align(Alignment.CenterVertically)
                                             .padding(start = 6.dp)
@@ -116,8 +130,7 @@ class PuppyDetailActivity : AppCompatActivity() {
                             }
                         }
 
-
-                        //puppy race
+                        // puppy race
                         Row(modifier = Modifier.padding(horizontal = 15.dp, vertical = 8.dp)) {
                             Image(
                                 painter = painterResource(id = R.mipmap.dog),
@@ -135,7 +148,7 @@ class PuppyDetailActivity : AppCompatActivity() {
                             )
                         }
 
-                        //puppy location
+                        // puppy location
                         Row(modifier = Modifier.padding(horizontal = 15.dp, vertical = 8.dp)) {
                             Image(
                                 painter = painterResource(id = R.mipmap.location),
@@ -153,7 +166,7 @@ class PuppyDetailActivity : AppCompatActivity() {
                             )
                         }
 
-                        //puppy age
+                        // puppy age
                         Row(modifier = Modifier.padding(horizontal = 15.dp, vertical = 8.dp)) {
                             Image(
                                 painter = painterResource(id = R.mipmap.age),
@@ -171,7 +184,7 @@ class PuppyDetailActivity : AppCompatActivity() {
                             )
                         }
 
-                        //description
+                        // description
                         Box(modifier = Modifier.padding(15.dp)) {
                             Text(text = mViewModel.puppyInfo.value?.description.toString(), fontSize = 18.sp, color = Color.Gray)
                         }
@@ -187,4 +200,3 @@ class PuppyDetailActivity : AppCompatActivity() {
         }
     }
 }
-
